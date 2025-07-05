@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign to Speech | Face Recognition Technology</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="content">
+      <h1>Sign to Speech</h1>
+      <p>Transform sign language into speech with cutting-edge technology.</p>
+      <button onclick="startDetection()" class="btn">Start Detection</button>
+      <p id="status"></p>
+    </div>
+    <div class="image">
+      <img src="feature.jpeg" alt="Sign to Speech">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="get-started" class="features">
+    <h2>How it Works</h2>
+    <div class="feature-box">
+      <img src="feature1.jpeg" alt="Feature 1">
+      <h3>Step 1: Capture Hand Signs</h3>
+      <p>The webcam captures your hand gestures in real time.</p>
+    </div>
+    <div class="feature-box">
+      <img src="feature2.jpeg" alt="Feature 2">
+      <h3>Step 2: Analyze the Signs</h3>
+      <p>Advanced algorithms process the hand gestures to understand the sign language.</p>
+    </div>
+    <div class="feature-box">
+      <img src="feature3.jpeg" alt="Feature 3">
+      <h3>Step 3: Generate Speech</h3>
+      <p>Once the gesture is identified, the corresponding speech is generated.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Sign to Speech Tech. All rights reserved.</p>
+  </footer>
+
+  <!-- Script to start detection -->
+  <script>
+    function startDetection() {
+      fetch('/start-detection', { method: 'POST' })
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('status').innerText = data;
+        })
+        .catch(error => {
+          document.getElementById('status').innerText = 'Failed to start detection.';
+        });
+    }
+  </script>
+</body>
+</html>
